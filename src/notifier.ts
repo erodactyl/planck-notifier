@@ -8,7 +8,7 @@ export class Notifier {
     return () => this.unsubscribe(s);
   }
 
-  unsubscribe(_s: Subscriber): void {
+  private unsubscribe(_s: Subscriber): void {
     this.subscribers = this.subscribers.filter(s => s !== _s);
   }
 
