@@ -3,16 +3,16 @@ type Subscriber = () => void;
 export class Notifier {
   private subscribers: Subscriber[] = []
 
-  subscribe(s: Subscriber): () => void {
+  subscribe = (s: Subscriber): () => void => {
     this.subscribers.push(s);
     return () => this.unsubscribe(s);
   }
 
-  private unsubscribe(_s: Subscriber): void {
+  private unsubscribe = (_s: Subscriber): void => {
     this.subscribers = this.subscribers.filter(s => s !== _s);
   }
 
-  notify(): void {
+  notify = (): void => {
     this.subscribers.forEach(s => s());
   }
 }
